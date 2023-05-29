@@ -13,18 +13,35 @@ spec:
 
 # When you created a pod, k8s automatically assaigns IP Adress
 
----
+
 # While providing service to the pod make sure that don't give to multiple pods to the same service.
+# apiVersion: v1
+# kind: Service
+# metadata: 
+#   name: my-service-nginx
+# spec:
+#   type: NodePort 
+#   selector:
+#     name: MyApp
+#   ports:
+#     - protocol: TCP
+#       port: 80 # Service port
+#       targetPort: 80 # pod container  port 
+#       #both communicatiing through ports.
+
+---
 apiVersion: v1
 kind: Service
-metadata: 
-  name: my-service-nginx
+metadata:
+  name: my-service
 spec:
-  type: NodePort 
+  type: NodePort
   selector:
-    name: MyApp
+    purpose: MyApp
   ports:
-    - protocol: TCP
-      port: 80 # Service port
-      targetPort: 80 # pod container  port 
-      #both communicatiing through ports.
+      # By default and for convenience, the `targetPort` is set to the same value as the `port` field.
+    - port: 80
+      targetPort: 80
+      # Optional field
+      # By default and for convenience, the Kubernetes control plane will allocate a port from a range (default: 30000-32767)
+      nodePort: 80
