@@ -1,0 +1,29 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web-server
+  labels:
+    purpose: web
+    tier: frontend
+spec:
+  containers:
+    - name: web-container
+      image: techworldwithsiva/wb:k8 
+      ports:
+        - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: my-service-web
+spec:
+  type: LoadBalancer
+  selector:
+    purpose: web
+    tier: frontend
+  ports:
+    - protocol: TCP
+      port: 80 # Service port
+      targetPort: 80
