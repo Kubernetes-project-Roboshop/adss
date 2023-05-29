@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels: 
+    name: MyApp
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    ports:
+    - containerPort: 80
+
+# When you created a pod, k8s automatically assaigns IP Adress
+
+# While providing service to the pod make sure that don't give to multiple pods to the same service.
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: my-service-nginx
+spec:
+  type: LoadBalancer
+  selector:
+    name: MyApp
+  ports:
+    - protocol: TCP
+      port: 80 # Service port
+      targetPort: 80 # pod container  port #both communicatiing through ports.
