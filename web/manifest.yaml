@@ -9,6 +9,7 @@ metadata:
 spec:
   containers:
     - name: web-container
+      imagePullPolicy: Always 
       image: arunponugotii/web:v1
       ports:
         - containerPort: 80
