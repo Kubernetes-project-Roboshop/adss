@@ -11,6 +11,8 @@ By using labels and selectors service gonna works.
 You can't connect external traffic with clusterIP.Internal communication purpose.
 # Node Port: Node port is helping to connect external traffic from internal pods. port no 80,443
 Example: If user wants to connect to the container # <nideIP:node port> 80,8080,443
+Ope you open one node IP with node port if it is openning then other nodes also connect and open the containers
+# This is Magic of K8s.  
 
 
 
