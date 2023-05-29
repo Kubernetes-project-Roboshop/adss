@@ -9,7 +9,7 @@ metadata:
 spec:
   containers:
     - name: web-container
-      image: techworldwithsiva/web:k8 
+      image: arunponugotii/web:v1
       ports:
         - containerPort: 80
 
