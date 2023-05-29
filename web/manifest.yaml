@@ -10,7 +10,7 @@ spec:
   containers:
     - name: web-container
       imagePullPolicy: Always 
-      image: arunponugotii/web:v1
+      image: jenkins
       ports:
         - containerPort: 80
 
