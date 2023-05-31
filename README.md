@@ -29,3 +29,12 @@ pod is subcet of replicaset and replicaset is subset of Deployment.
 Deployment is highest objenct to deploy the pods.
 Deployment is managing pods by using REPLICASETS.
 
+# Rolling Updates:-
+=================
+While rolling updates we need to maintain <Zero time>,
+While Updating the new version , Deployment should need to maintain zero down time and update the aplication at a time.
+Example for rolling updates:
+When 10 pods are running we need to create 11 one and then remove 10 one.
+Deployment will create new poda and remove the existing old pod.
+Offcourse at the new release time we see two APPLICATIONS running but we won't get any imapct on our business.
+<Even we can overcome this problem by using rolling update strategy>
