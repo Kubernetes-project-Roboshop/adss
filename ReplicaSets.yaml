@@ -1,3 +1,5 @@
+# kubectl get rs
+---
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
@@ -18,4 +20,4 @@ spec:
     spec:
       containers:
       - name: nginxrep
-        image: nginx
+        image: nginx:alpine 

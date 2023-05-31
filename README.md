@@ -15,3 +15,7 @@ Integration with other Kubernetes Objects: ReplicaSets are often used in conjunc
 K8s gonna make application highly scalable,high availabile and fault tolerence by using controller manager and replicasets
 Rel=plicates gonna scale the desired no of pods.
 Replicasets gonna maintain pod's lifecycle and rolling updates.
+
+# Problem with ReplicaSets:
+=============================
+When you want to update a new version of deocker image, you need to remove the old one.
