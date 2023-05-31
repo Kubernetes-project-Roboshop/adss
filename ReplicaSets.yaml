@@ -9,7 +9,7 @@ metadata:
     tier: frontend
 spec:
   # modify replicas according to your case
-  replicas: 5
+  replicas: 3
   selector:
     matchLabels: # This syntax gonna identify the which pods should scale and manage. 
       tier: frontend
@@ -20,4 +20,4 @@ spec:
     spec:
       containers:
       - name: nginxrep
-        image: nginx:1.14.2
+        image: nginx:alpine 
