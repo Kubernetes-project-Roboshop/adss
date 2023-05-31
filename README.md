@@ -1,0 +1,17 @@
+# ReplicaSet responsability is ensuring the number of replicas running at all the give time.
+# ReplicaSets automatically replace,remove unhealthy and inactive pods.
+# Replicasets are  also responsable for workload scalling and high availability of PODs.
+# ReplicaSets controller by default creates 3 replicas. if one fails another will be created and running.
+#  ReplicaSets monitor the health of Pod replicas. If a Pod fails or is terminated for any reason, the ReplicaSet
+ #automatically replaces it with a new one to maintain the desired number of replicas. This self-healing capability 
+ #ensures high availability of your application.
+# ReplicaSets facilitate rolling updates of your application. When you need to update the application image or configuration, you can create a new ReplicaSet with the updated specifications. The ReplicaSet controller gradually replaces the old Pods with the new ones,
+ #ensuring a smooth transition without any downtime.
+Integration with other Kubernetes Objects: ReplicaSets are often used in conjunction with other Kubernetes 
+#objects. For example, you can create a Service to expose your ReplicaSet as a stable endpoint, 
+#or use a Deployment to manage the ReplicaSet's lifecycle and rolling updates.
+
+<Managing Replicas:> <Scaling> <Self-Healing> <Rolling Updates:> 
+K8s gonna make application highly scalable,high availabile and fault tolerence by using controller manager and replicasets
+Rel=plicates gonna scale the desired no of pods.
+Replicasets gonna maintain pod's lifecycle and rolling updates.
