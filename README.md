@@ -24,4 +24,8 @@ When ever you release the new version of Application,you need to remove the repl
 
 # To resolve this problem we have new concept of Deployment. 
 Once we deploy the Application, Whenever the ew version need to deploy then deployment automatically update the new version.
+<kubectl get rs>
+pod is subcet of replicaset and replicaset is subset of Deployment.
+Deployment is highest objenct to deploy the pods.
+Deployment is managing pods by using REPLICASETS.
 
