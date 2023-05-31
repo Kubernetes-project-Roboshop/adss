@@ -19,3 +19,9 @@ Replicasets gonna maintain pod's lifecycle and rolling updates.
 # Problem with ReplicaSets:
 =============================
 When you want to update a new version of deocker image, you need to remove the old one.
+Replicasets is unable to update the new version of image.
+When ever you release the new version of Application,you need to remove the replicaSet and create the new replicaset.
+
+# To resolve this problem we have new concept of Deployment. 
+Once we deploy the Application, Whenever the ew version need to deploy then deployment automatically update the new version.
+
