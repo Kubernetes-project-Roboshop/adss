@@ -5,5 +5,10 @@ so to overcome this k8s store the data in remote location becuease eks cluster ,
 Main container continuesly creating logs if we store them in same node,it is not the best practice.
 Side car container responsability is to getting the data from Data storage which was created main running container and sending them to elastic search.
 
-# Emty Directory:
+# Emty Directory and Host path:
 Is a type of volume in k8s,Where multiple containers are connected to the Emty directory.
+Mounting config maps as volumes:
+create config maps for files like nginx.config.
+mount them as volumes
+use it for containers
+
