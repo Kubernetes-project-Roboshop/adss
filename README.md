@@ -24,5 +24,33 @@ A DaemonSet is used when you need to run a copy of a pod on each node in a clust
 
 When you create a DaemonSet, Kubernetes automatically creates and manages the pods on each node. If a new node is added to the cluster, a pod will be scheduled on that node, and if a node is removed, the pod running on it will be terminated.
 
+# Storage  outside of the k8s:
+Just like external hard disk 
+We can it as persitance volume: PV, 
+# Persistance volume claim:
+# Static provisioning
+K8s managing extenal storage by using persistance volume and persistance volume claim.
+<k8s>----> <PV, PVC>---> <External Storage>
+pv gonna declare the storage and pvc gonna declare the
+
+# Fisrt need to  create one PV , then PVC gonna claiming the PV
+# Pods gonna claim the PV by using PVC.
+
+Bassically pods gonna ask for storage to the PVC and then pvc will ask the pv.
+Then pv gonna check the External storage and send fetch the storage,
+PVC rewquesting or claiming to the PV for storage.
+
+### <K8s life scycle policies>
+# Reatin: Even the running pod is removed or crashed k8s autoamtically retain the Data, it will make sure the  to remove the data along with POD.
+# Delete: Even pod deleted or replaced by amother pod , by default data  will be deleted but when configure persistace volumes and claims ,we gonna separate the data from pods.
+
+# So to ensure the data : We need to configure the pod to the PCV and make sure the pcv is associated with PVC, 
+
+# Acces mode:
+RWO: Read write once: At a time only one node can be modify.
+RWM: Read write mamy: We can modify many pods in node at a time.
+RO: Read Only.
+# Static Provisioning and Dynamic Provisioning:
+Static we need to proviion manually, Dynamic we PVs atuomatically provison.
 
 
