@@ -24,9 +24,8 @@ spec:
   resources:
     requests:
       storage: 5Gi
-  selector:
-    matchLabels:
-      name: my-ebs-volume 
+  volumeName: my-volume
+ 
 ---
 apiVersion: apps/v1
 kind: Deployment
