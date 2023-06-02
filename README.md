@@ -53,4 +53,10 @@ RO: Read Only.
 # Static Provisioning and Dynamic Provisioning:
 Static we need to proviion manually, Dynamic we PVs atuomatically provison.
 
+# Pod askes to pvc to get stoarge ,pvc gonna request or claim the storage TO THE PV, PV gonna is going to talk to the external storage
+
+# Dynamic Provisioning:
+=======================
+
+
 
