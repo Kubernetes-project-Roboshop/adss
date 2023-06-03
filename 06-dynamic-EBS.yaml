@@ -25,8 +25,8 @@ spec:
   
 
 ---
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: app/v1
+kind: Pod 
 metadata:
   name: my-app
 spec:
