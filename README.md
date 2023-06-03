@@ -67,6 +67,11 @@ While creating Dynamic Provisoning We need to install Drivers.
 If you are creating one PVC then you will get one EBS Storage ,if create 10 ,then 10 ebs storage.
 # Drivers: -->
 K8s does not have access to storage systems,so driver provide a layer.
+If you are creating dynamic provisioning storage, PV will created dynamically.
+
+While running Dynamic provisioning, we need to attach IAM role of EC2 full access. go to the one server and in security option, see iam role and go into the iam.
+
+
 
 
 
