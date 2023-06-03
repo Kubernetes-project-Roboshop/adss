@@ -28,7 +28,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-app
+  name: pod-for-PV
 spec:
   replicas: 1
   selector:
