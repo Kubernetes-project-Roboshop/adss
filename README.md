@@ -57,6 +57,18 @@ Static we need to proviion manually, Dynamic we PVs atuomatically provison.
 
 # Dynamic Provisioning:
 =======================
+Basically we don't create PVs and storage while dealting with Dynamic Provisioning.
+Everything will be handled by PVC,
+When you are creating volumes dynamically, PVs will be created autoamtically, Storage calss gonna creates the PVs.
+In the dynamic provisioning process there is a service called drivers, it acts like gateway to the External volumes and storage class, storage class creates the PVs, storage class talk to the PVCs, PVS services talk to the PODS.
+
+While creating Dynamic Provisoning We need to install Drivers.
+<!-- We need to create the Storage class for EBS
+If you are creating one PVC then you will get one EBS Storage ,if create 10 ,then 10 ebs storage.
+# Drivers: -->
+K8s does not have access to storage systems,so driver provide a layer.
+
+
 
 
 
