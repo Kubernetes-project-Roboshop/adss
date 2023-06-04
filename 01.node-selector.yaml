@@ -9,5 +9,5 @@ spec:
   - name: nginx
     image: nginx
     imagePullPolicy: Always
-  nodeSelector:
-    tier: web
+  # nodeSelector:
+  #   tier: web
