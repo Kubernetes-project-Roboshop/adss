@@ -1,6 +1,6 @@
 # Persistance Volumes:
 It act like EBS,EFS in AWS.
-In docker we use docker vilumes to store the data,but the thing is if the docker container and node gonns crashes entire data gonna be loat,
+In docker we use docker vilumes to store the data,but the thing is if the docker container and node gonns crashes entire data gonna be lost,
 so to overcome this k8s store the data in remote location becuease eks cluster ,pod and slave nodee are not perminanet,they gonna crash any time.
 Main container continuesly creating logs if we store them in same node,it is not the best practice.
 Side car container responsability is to getting the data from Data storage which was created main running container and sending them to elastic search.
@@ -19,7 +19,7 @@ We use it for the daemon set purpose.
 
 # Daemon Set:
 Daemon set responsable for runs pod in each and every node for logs .var/log
-it will shoft the metrics to the elastic search.
+it will ship the metrics to the elastic search.
 A DaemonSet is used when you need to run a copy of a pod on each node in a cluster, guaranteeing that there is exactly one instance of the pod running on each node. This is particularly useful for tasks such as monitoring agents, log collectors, or networking proxies that require running on every node.
 
 When you create a DaemonSet, Kubernetes automatically creates and manages the pods on each node. If a new node is added to the cluster, a pod will be scheduled on that node, and if a node is removed, the pod running on it will be terminated.
@@ -70,6 +70,13 @@ K8s does not have access to storage systems,so driver provide a layer.
 If you are creating dynamic provisioning storage, PV will created dynamically.
 
 While running Dynamic provisioning, we need to attach IAM role of EC2 full access. go to the one server and in security option, see iam role and go into the iam.
+
+# <Elastic file system>
+ Create EFS drivers and storage class
+# EFS driver
+ kubectl apply -k "github.com/kubernetes-sigs/aws-efs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.5"
+ # Storage class for EFS
+ curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-efs-csi-driver/master/examples/kubernetes/dynamic_provisioning/specs/storageclass.yaml
 
 
 
