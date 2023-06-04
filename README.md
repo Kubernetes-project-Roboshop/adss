@@ -78,6 +78,11 @@ While running Dynamic provisioning, we need to attach IAM role of EC2 full acces
  # Storage class for EFS
  curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-efs-csi-driver/master/examples/kubernetes/dynamic_provisioning/specs/storageclass.yaml
 
+# NODE SELECTOR:
+================
+Scedulor is scedulling the pods to available nodes.
+Bassically sceduloor gonna send the pods to random nodes, but sometimes we need to customize the pods to send only to few nodes only.
+
 
 
 

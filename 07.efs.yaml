@@ -25,37 +25,39 @@ spec:
     requests:
       storage: 5Gi
 
----
-apiVersion: v1
-kind: Pod
-metadata:
-  name: efs-app
-spec:
-  containers:
-    - name: app
-      image: centos
-      command:
-        - /bin/sh
-      args:
-        - -c
-        - while true; do echo $(date -u) >> /data/out; sleep 5; done
-      volumeMounts:
-        - name: persistent-storage
-          mountPath: /data
-  volumes:
-    - name: persistent-storage
-      persistentVolumeClaim:
-        claimName: efs-claim
+# ---
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: efs-app
+# spec:
+#   containers:
+#     - name: app
+#       image: centos
+#       command:
+#         - /bin/sh
+#       args:
+#         - -c
+#         - while true; do echo $(date -u) >> /data/out; sleep 5; done
+#       volumeMounts:
+#         - name: persistent-storage
+#           mountPath: /data
+#   volumes:
+#     - name: persistent-storage
+#       persistentVolumeClaim:
+#         claimName: efs-claim
 
 ---
 apiVersion: v1
 kind: Pod
 metadata:
-  name: my-pod
+  name: nginx
 spec:
   containers:
-    - name: nginx
-      image: nginx
+  - name: nginxq
+    image: nginx
+    ports:
+    - containerPort: 80
       volumeMounts:
         - name: my-efs-volume
           mountPath: /usr/share/nginx/html
