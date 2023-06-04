@@ -1,0 +1,32 @@
+--- 
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: roboshop-ns
+  labels:
+    name: roboshop
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: roboshop-ns
+  name: roboshop-read-role
+rules:
+- apiGroups: ["*"] # "" indicates the core API group
+  resources: ["*"] # STAR means all
+  verbs: ["get","list","watch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: roboshop-read-rolebinding
+  namespace: roboshop-ns
+subjects:
+- kind: User
+  name: ramesh
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role 
+  name: roboshop-read-role 
+  apiGroup: rbac.authorization.k8s.io

@@ -9,3 +9,11 @@ First we need to create IAM role and give athentication to EKS Cluster.(Admin ha
 # User --> username and password
 # Role --> What are the permissions he had
 # Binding --> Admin  gonna attach user with role.
+
+kubectl get ns -nodes
+kubectl get roles -n <namespcae-name>
+kubectl get rolebinding -n <namespcae-name>
+
+# In simple context RBAC:
+It decides who should what should do,
+K8s admin assain the roles to the user by using rollbinding.
