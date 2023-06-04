@@ -23,8 +23,8 @@ metadata:
   name: roboshop-admin-rolebinding
   namespace: roboshop-ns
 subjects:
-- kind: roboshop-user
-  name: jane 
+- kind: User
+  name: roboshop-user 
   apiGroup: rbac.authorization.k8s.io
 roleRef:
   kind: Role 
