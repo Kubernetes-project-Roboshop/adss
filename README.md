@@ -1,0 +1,1 @@
+While pod defination we gonna apply the labels to the node.
