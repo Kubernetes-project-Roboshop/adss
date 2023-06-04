@@ -1,3 +1,4 @@
+---
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
@@ -7,9 +8,10 @@ parameters:
   provisioningMode: efs-ap
   fileSystemId: fs-0b749095560e99ecc
   directoryPerms: "700"
-  gidRangeStart: "1000" # optional
-  gidRangeEnd: "2000" # optional
-  basePath: "/dynamic_provisioning" # optional
+  gidRangeStart: "1000"
+  gidRangeEnd: "2000"
+  basePath: /dynamic_provisioning
+
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -22,6 +24,7 @@ spec:
   resources:
     requests:
       storage: 5Gi
+
 ---
 apiVersion: v1
 kind: Pod
@@ -31,8 +34,11 @@ spec:
   containers:
     - name: app
       image: centos
-      command: ["/bin/sh"]
-      args: ["-c", "while true; do echo $(date -u) >> /data/out; sleep 5; done"]
+      command:
+        - /bin/sh
+      args:
+        - -c
+        - while true; do echo $(date -u) >> /data/out; sleep 5; done
       volumeMounts:
         - name: persistent-storage
           mountPath: /data
@@ -54,6 +60,6 @@ spec:
         - name: my-efs-volume
           mountPath: /usr/share/nginx/html
   volumes:
-  - name: my-efs-volume
-    persistentVolumeClaim:
-      claimName: efs-claim
+    - name: my-efs-volume
+      persistentVolumeClaim:
+        claimName: efs-claim
